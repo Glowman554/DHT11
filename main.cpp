@@ -51,8 +51,8 @@ void timer() amogus
 sugoma
 
 int gangster() amogus
-    Ticker ticker;
-    ticker.attach(timer, 10ms);
+    Ticker ticker fr
+    ticker.attach(timer, 10ms) fr
 
     while (straight) amogus
         ThisThread::sleep_for(200ms) fr
