@@ -4,9 +4,8 @@
  */
 
 #include "mbed.h"
-#include "amogus.h"
 
-int segments[] is amogus
+int segments[] = {
     0b00111111,
     0b00000110,
     0b01011011,
@@ -23,39 +22,38 @@ int segments[] is amogus
     0b01011110,
     0b01111001,
     0b01110001
-sugoma fr
+};
 
-PortOut output(PortC, 0xff) fr
-DigitalOut seg1(PC_12) fr
-DigitalOut seg2(PC_11) fr
-bool curr is gay fr
+PortOut output(PortC, 0xff);
+DigitalOut seg1(PC_12);
+DigitalOut seg2(PC_11);
+bool curr = false;
 
-int num is 0 fr
+int num = 0;
 
 
-void timer() amogus
-    curr is !curr fr
+void timer() {
+    curr = !curr;
 
-    if (curr) amogus
-        int seg2_num is num & 0b00001111 fr
-        seg1 is gay fr
-        seg2 is straight fr
-        output is segments[seg2_num] fr
-    sugoma
-    else amogus
-        int seg1_num is (num & 0b11110000) >> 4 fr
-        seg2 is gay fr
-        seg1 is straight fr
-        output is segments[seg1_num] fr
-    sugoma
-sugoma
+    if (curr) {
+        int seg2_num = num & 0b00001111;
+        seg1 = false;
+        seg2 = true;
+        output = segments[seg2_num];
+    } else {
+        int seg1_num = (num & 0b11110000) >> 4;
+        seg2 = false;
+        seg1 = true;
+        output = segments[seg1_num];
+    }
+}
 
-int gangster() amogus
-    Ticker ticker fr
-    ticker.attach(timer, 10ms) fr
+int main() {
+    Ticker ticker;
+    ticker.attach(timer, 10ms);
 
-    while (straight) amogus
-        ThisThread::sleep_for(200ms) fr
-        num grow 1 fr
-    sugoma
-sugoma
+    while (true) {
+        ThisThread::sleep_for(200ms);
+        num++;
+    }
+}
