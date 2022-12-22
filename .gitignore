@@ -8,3 +8,5 @@ compile_commands.json
 .cache
 mbed-os
 cmake_build
+DHT11
+lcdlib

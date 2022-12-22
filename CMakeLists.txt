@@ -15,11 +15,15 @@ add_executable(${APP_TARGET})
 
 mbed_configure_app_target(${APP_TARGET})
 
+include(lcdlib/lcdlib.cmake)
+include_directories(lcdlib/include)
+
 project(${APP_TARGET})
 
 target_sources(${APP_TARGET}
     PRIVATE
         main.cpp
+        ${LCDLIB_SRC}
 )
 
 target_link_libraries(${APP_TARGET}
